@@ -1,0 +1,99 @@
+# Christmas 2022 Remaster application rules
+
+**Developed by Kittipich "Luke" Aiumbhornsin**
+
+**Last updated on May 11, 2023 @17:56**
+
+- Home page/landing page are set to be login page
+- People specified below able to login with pre-defined accounts
+  - Pa & Mama
+  - Dad & Mom
+  - Papa & Grandma
+  - Kwan & Wish
+  - Anna
+  - Aj. Trithep & Aj. Jade
+  - Candice
+  - Addy & Evander
+  - Noemi
+  - myself (with more functionalities such as add more questions)
+- Use their capitalized first name as their username
+- Use their birthday in format YYYY-MM-DD as default password
+- They have ability to change their password in the future
+- No sign-up available
+- Have guest view
+- Home page contains buttons linked to
+  If any login status - general celebration view - how well you know me game
+  If logged in status only - Customized app/memories/features for user only
+- DB for User:
+  - str fname, not null, primary key | First name
+  - str password, not null | Password
+  - str alias, not null | Alias
+  - foreign key game.id | Relationship with Game
+- DB for Game:
+  - int id, primary key | points database ref
+  - datetime start_time | time that start playing game
+  - datetime finish_time | time that user finish the game
+  - int score, not null, default = 0 | final score for each time that user completed the game
+  - int counter, not null | shows what time they have completed (not datetime but in first, second, third...)
+  - str played_by, not null, foreign key(user.fname) | user: one-to-many relationship :game
+- DB for Question:
+  - int q_id, primary key | question id
+  - str q, not null | question
+  - str a, nullable | answer
+- Landing page after logged in is called "cake"
+- Endpoint settings
+  - [root url]: "christmas2022.[domain name].[TLD]"
+  - for fetching app info is "/return-christmas2022remaster-app-info"
+  - for landing page is "/"
+  - for login page is "/login"
+  - for general celebration view is "/joy-is-arrived/"
+  - [Development only] for root view is "/root-template-view/"
+  - for cake page is "/<string:alias>/cake/"
+  - for game landing page is "/<string:alias>/have-fun-with-my-game/"
+  - for game page 1 to n is "/<string:alias>/have-fun-with-my-game/play/"
+  - for game landing page (play as a guest) is "/as-a-guest/have-fun-with-my-game"
+  - for game page 1 to n (play as a guest) is "/as-a-guest/have-fun-with-my-game/play/"
+  - for account management landing page is "/<string:alias>/account-management/"
+  - for changing account password is "/<string:alias>/account-management/change-password/"
+  - for checking pre-defined accounts is "/check-account/by-first-name/" (for independant view) and "/check/" [for integrated login view]('POST' method only)
+  - for about page is "/about/"
+  - for game result page is "/<string:alias>/have-fun-with-my-game/<int:id>/this-is-your-performance/"
+  - for game result page (play as a guest) is "/as-a-guest/have-fun-with-my-game/<int:id>/this-is-your-performance/"
+  - for questions management is "/<string:alias>/have-fun-with-my-game/questions-management/"
+  - for select to see performance ('POST' method only) is "/<string:alias>/have-fun-with-my-game/performance-look-up/query-by-id/"
+- cake page contains
+  - a button leads to customized features page
+  - a button leads to game
+  - a button leads to account management page
+  - a button leads to about page
+  - a button to say something to me
+  - a button leads to report bugs
+- game landing page contains
+  - a button leads to add more question if the logged in user is myself
+  - start button
+  - select to see performance by id and finish_time
+- account management page contains
+  - last performance score
+  - a button leads to change account password page
+- login page contains
+  - login form
+  - a button leads to check pre-defined accounts
+- about page contains
+  - brief info of myself
+  - about the application
+  - a button leads to report bugs
+  - contact me
+- root template view contains
+  - navbar
+    - cake
+    - celebrate
+    - game
+    - about
+    - account
+  - footer
+    - about the app
+    - copyright myself
+- customized features notes for each one
+  - Grandma:
+    - Birthday celebration (Dec 11)
+  -
