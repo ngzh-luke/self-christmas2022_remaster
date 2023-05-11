@@ -1,0 +1,54 @@
+{% extends 'gameLanding.html' %}{% block title %} Question Manager {% endblock
+%}
+<!-- don't forget to edit in the questionsManager.html and other game html file related as well -->
+<style>
+  .swal2-popup {
+    font-size: 1.6rem !important;
+    font-family: "Kodchasan", sans-serif;
+  }
+  body {
+    background-image: linear-gradient(
+      to top right,
+      #dfe890 0%,
+      #82d1cc 50%,
+      #3a44db 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s alternate-reverse infinite;
+    height: 100vh;
+  }
+</style>
+
+<div class="py-3 px-2 mx-2" align="center">
+  <a href="/add"> <button class="btn btn-success">New Question</button></a>
+  <a href="/edit"> <button class="btn btn-light">Edit Question</button></a>
+</div>
+{% if add %}
+<div align="center">
+  <div class="col-5 mx-3 my-3 px-2 py-2" align="center">
+    <form
+      class="form-control form-control border border-3 border-light"
+      action="/Kan/have-fun-with-my-game/questions-management/add-question/"
+      method="POST"
+    >
+      <label for="question" class="my-2">Question</label>
+      <input
+        type="text"
+        class="form-control"
+        name="question"
+        placeholder="Question"
+      />
+      <label for="answer" class="my-2">Correct answer</label>
+      <input
+        type="text"
+        class="form-control"
+        name="answer"
+        placeholder="Correct Answer"
+      /><br />
+      <button type="submit" class="btn btn-lg btn-primary mb-3">
+        Add Question
+      </button>
+    </form>
+  </div>
+</div>
+{% endif %} {% if edit %} {% endif %}

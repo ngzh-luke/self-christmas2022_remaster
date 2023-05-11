@@ -1,0 +1,63 @@
+{% extends 'root.html' %} {% block title %} MY ACCOUNT {% endblock %} {% block
+body %}
+<style>
+  .swal2-popup {
+    font-size: 1.6rem !important;
+    font-family: "Kodchasan", sans-serif;
+  }
+  body {
+    height: 100vh;
+  }
+</style>
+{% if auto %}
+<script>
+  theChanger("{{user.alias}}");
+</script>
+{% endif %}
+<div
+  class="text-center my-2 py-2 px-5 mx-5 border border-3 border-info rounded-top"
+  align="center"
+>
+  <div class="px-3 py-3" align="end">
+    <h1 style="font-weight: bold">My Account</h1>
+    <div class="hstack" align="start">
+      <br />
+      {% if data %}
+      <div class="vstack gap-2">
+        <h4>First Name: "{{data[0]}}"</h4>
+        <h4>Alias: "{{data[1]}}"</h4>
+        <h4>
+          Account Password is a default setted or it is not met the suggested
+          criteria(s): {{data[2]}}
+        </h4>
+        <aside>You can run the test again by click on the grey button</aside>
+        <p>
+          *If it is
+          <span style="font-size: larger; color: whitesmoke; font-weight: bold"
+            ><u>"True"</u></span
+          >, it means your account are not met our suggested password
+          criteria(s). Therefore, please consider<span
+            style="color: greenyellow"
+            ><strong> changing your password</strong>
+          </span>
+          by clicking the blue button aside.*
+        </p>
+
+        <button class="col-4 btn btn-secondary" onclick="riskLevelChecker()">
+          Perform account risk level check
+        </button>
+      </div>
+      {% endif %}
+      <div class="align-self-center">
+        <button
+          onclick="theChanger('{{user.alias}}')"
+          class="btn btn-lg btn-primary"
+        >
+          Change password
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

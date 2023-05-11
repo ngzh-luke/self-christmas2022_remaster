@@ -1,0 +1,103 @@
+{% extends 'root.html' %} {% block title %} Game Landing Page{% endblock %} {%
+block body %} {% include 'pyscript.html' %}
+<!-- don't forget to edit in the questionsManager.html and other game html file related as well -->
+<style>
+  .swal2-popup {
+    font-size: 1.6rem !important;
+    font-family: "Kodchasan", sans-serif;
+  }
+  body {
+    background-image: linear-gradient(
+      to top right,
+      #dfe890 0%,
+      #82d1cc 50%,
+      #3a44db 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s alternate-reverse infinite;
+    height: auto;
+  }
+</style>
+
+<div class="my-5 py-2">
+  <div class="d-grid gap-2 mx-5 px-5">
+    <button class="btn btn-lg btn-light" onclick="play()">Play</button>
+  </div>
+  <div class="text-center my-3 py-3 px-5 mx-5" align="center">
+    <div class="instruction">
+      <h4 style="font-weight: bolder; font-style: italic">
+        Game: How well you know me?
+      </h4>
+      <p><strong>Instructions</strong></p>
+      <ul>
+        <li>The game is multiple choice</li>
+        <li>
+          Each question worth 1 point and possible 10 points will be rewarded
+        </li>
+        <li>You can check your history at anytime (logged in user only)</li>
+        <li><strong>Guest player mode doesn't have play history</strong></li>
+        <li>
+          <small
+            >Please try playing on your own before check the Answer Key -><a
+              href="/have-fun-with-my-game/answer-key/"
+            >
+              <button class="btn btn-primary"></button></a
+          ></small>
+        </li>
+      </ul>
+    </div>
+    <br />
+
+    {% if current_user.is_authenticated %} {% if current_user.isMe == True %}
+    <a href="/question-manager/">
+      <button class="btn btn-primary">Question Manager</button></a
+    >
+    {% endif %} {% endif %}
+  </div>
+</div>
+
+<div class="text-center" align="center">
+  <div class="px-3">
+    <div class="row-1" align="center">
+      <div class="col-8 gap-3">
+        {% if user.is_authenticated %}
+        <div class="mx-3 py-3 my-2 border border-primary border-2 rounded">
+          <h3>Personal Records</h3>
+          <ul class="list-group list-group-flush" id="personal_records">
+            {% for game in user.points %}
+            <li
+              class="list-group-item list-group-item-action list-group-item-danger"
+            >
+              Game ID: {{ game.id }} | {{game.played_by}} got:
+              <span style="color: #3a44db; font-size: larger; font-weight: bold"
+                >{{ game.score }} Points</span
+              >
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <div class="mx-3 py-3 my-3 border border-2 rounded border-warning">
+          <h3>Global Records</h3>
+          <ul class="list-group list-group-flush" id="points">
+            {% for g in game %}
+            <li class="list-group-item list-group-item-action">
+              Game ID: {{ g.id }} | {{g.played_by}} got:
+              <span style="color: #3a44db; font-size: larger; font-weight: bold"
+                >{{ g.score }} Points</span
+              >
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function play() {
+    window.location.assign("/play");
+  }
+</script>
+{% endblock %}

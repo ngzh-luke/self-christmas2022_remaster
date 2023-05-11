@@ -136,3 +136,6 @@ migrations/
 
 # personal msgs to people
 #msg.py
+
+# VSCode stuff
+.vscode

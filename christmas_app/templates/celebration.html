@@ -1,0 +1,55 @@
+{% extends 'root.html' %} {% block title %} CELEBRATION {% endblock %} {% block
+body %}
+<style>
+  body {
+    height: auto;
+  }
+</style>
+<div class="text-center my-2 py-3 px-3 mx-5" align="center">
+  <div class="px-3 py-1" align="end">
+    <h1 style="font-size: xx-large">Merry Christmas & Happy New Year 2023</h1>
+    <div class="px-3 py-3" align="center">
+      Here are some Christmas songs from YouTube provided below.
+    </div>
+    <div class="col" align="center">
+      <div class="mx-2 px-2 py-2 my-2" id="joy_to_the_world">
+        <div class="align-self-center">
+          <label for="joy-to-the-world" style="color: aqua"
+            >Song: Joy to the World</label
+          >
+        </div>
+
+        <iframe
+          name="joy-to-the-world"
+          class="responsive-iframe"
+          src="https://www.youtube.com/embed/30OaM6b48k8"
+          title="Joy to the World with Lyrics | Christmas Carol & Song"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="mx-2 px-2 py-2 my-2" id="we_wish_you_a_merry_christmas">
+        <div class="align-self-center">
+          <label for="we-wish-you-a-merry-christmas" style="color: aqua"
+            >Song: We wish you a Merry Christmas</label
+          >
+        </div>
+        <iframe
+          name="we-wish-you-a-merry-christmas"
+          class="responsive-iframe"
+          src="https://www.youtube.com/embed/AUsBqAXUoZM"
+          title="We Wish You a Merry Christmas | Christmas Songs"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      In an occasion of Christmas and New Year Celebration 2023, I wish you all
+      a happy new year, and may you all achieve all good things you desire.
+    </div>
+  </div>
+</div>
+
+{% endblock %}

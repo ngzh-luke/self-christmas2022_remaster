@@ -1,8 +1,8 @@
 # Christmas 2022 Remaster application rules
 
-**Developed by Kittipich "Luke" Aiumbhornsin**
+## **Developed by Kittipich "Luke" Aiumbhornsin**
 
-**Last updated on May 11, 2023 @17:56**
+## **Last updated on May 11, 2023 @21:29**
 
 - Home page/landing page are set to be login page
 - People specified below able to login with pre-defined accounts
@@ -17,13 +17,14 @@
   - Noemi
   - myself (with more functionalities such as add more questions)
 - Use their capitalized first name as their username
-- Use their birthday in format YYYY-MM-DD as default password
+- Use their birthday in format MM-DD as default password
 - They have ability to change their password in the future
 - No sign-up available
 - Have guest view
 - Home page contains buttons linked to
   If any login status - general celebration view - how well you know me game
   If logged in status only - Customized app/memories/features for user only
+- DB will be [postgress]
 - DB for User:
   - str fname, not null, primary key | First name
   - str password, not null | Password

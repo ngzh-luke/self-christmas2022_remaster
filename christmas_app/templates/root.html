@@ -1,0 +1,282 @@
+<!-- This is a root template html which it will be inherited to other pages -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Christmas App 2022 for my beloved ones" />
+    <meta name="author" content="Luke" />
+    <title>{% block title %}_[ROOT TEMPLATE]_{% endblock %}</title>
+    <!-- BOOTSTARP 5.2.3 CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <!-- BS C Offline access -->
+    <!-- <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{url_for('static', filename='offline_cdn/bs5-2-3c.css')}}"
+    /> -->
+    <!-- Load custom App styling -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static',
+    filename='style.css') }}">
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js') }}"
+    ></script>
+    <!-- BOOTSTARP 5.2.3 JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <!-- BS J Offline access -->
+    <!-- <script src="{{url_for('static', filename='offline_cdn/bs5-2-3j.js')}}"></script> -->
+  </head>
+
+  <body onload="getLcTime(), getAppIn()">
+    {% include 'alert.html' %} {% block root %}
+    <script type="text/javascript">
+      function getLcTime() {
+        let lt = new Date();
+        lt.toLocaleDateString();
+        var refresh = 1000; // Refresh rate in milli seconds
+        mytime = setTimeout("getLcTime()", refresh);
+        document.getElementById("ct").innerHTML = lt;
+      }
+    </script>
+
+    <nav
+      class="navbar navbar-expand-lg sticky-top bg-light border-bottom border-4 border-warning"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"
+          >{% if session['LANG'] == "TH" %}ของขวัญ{% else %}Present{% endif
+          %}</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {% if session['LANG'] == "TH" %}กดผมสิ{% else %}Click Me!{%
+                endif %}
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/check-account/"
+                    >{% if session['LANG'] == "TH" %}ตรวจดูบัญชีที่มีในระบบ{%
+                    else %}Check pre-defined Account{% endif %}</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/game/"
+                    >{% if session['LANG'] == "TH" %}เกม{% else %}Game{% endif
+                    %}</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/login"
+                >{% if session['LANG'] == "TH" %}ลงชื่อเข้าใช้{% else %}Login{%
+                endif %}</a
+              >
+            </li>
+            {% endif %}
+            <!-- <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/setting"
+                >Setting</a
+              >
+            </li> -->
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="/{{user.alias}}/cake/"
+                >{% if session['LANG'] == "TH" %}เค้ก{% else %}Cake{% endif
+                %}</a
+              >
+            </li>
+            {% endif %}
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {% if session['LANG'] == "TH" %}ฉลอง{% else %}Celebration{%
+                endif %}
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/joy-is-arrived"
+                    >{% if session['LANG'] == "TH" %}ฉลองทั่วไป{% else %}General
+                    Celebration{% endif %}</a
+                  >
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/for/{{user.alias}}/customized-celebration-view/"
+                    >{% if session['LANG'] == "TH" %}ฉลองแบบเพื่อคุณเท่านั้น{%
+                    else %}Customized Celebration{% endif %}</a
+                  >
+                </li>
+                {% endif %}
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about"
+                >{% if session['LANG'] == "TH" %}เกี่ยวกับ{% else %}About{%
+                endif %}</a
+              >
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {% if session['LANG'] == "TH" %}บัญชี{% else %}Account{% endif
+                %}
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/{{user.alias}}/account-management"
+                    >{% if session['LANG'] == "TH" %}บัญชีของฉัน{% else %}My
+                    Account{% endif %}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/{{user.alias}}/account-management/change-password/"
+                    >{% if session['LANG'] == "TH" %}เปลี่ยนรหัสผ่าน{% else
+                    %}Change Account Password{% endif %}</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="/logout"
+                    >{% if session['LANG'] == "TH" %}ลงชื่อออก{% else %}Logout{%
+                    endif %}</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="logged-in-user mx-2" align="center">
+          <span class="input-group-text mx-3" id="basic-addon1"
+            >@<a class="nav-link" href="/{{user.alias}}/account-management">
+              <span style="color: green">&ensp;{{user.__str__()}}</span></a
+            ></span
+          >
+        </div>
+        {% endif %}
+      </div>
+      <!-- Language selector -->
+      <div class="lang mx-1 px-2">
+        <form action="/set-session-lang/" method="POST">
+          <button
+            class="btn btn-outline-primary"
+            id="liveToastBtn"
+            onclick="langHelper(lan)"
+          >
+            ไทย/ENGLISH
+          </button>
+        </form>
+      </div>
+      <!-- show current time at id=ct -->
+      <div class="show_time" style="color: rgb(233, 128, 146)">
+        <div class="mx-2" align="center">
+          Current Time:
+          <div class="navbar-text" style="color: grey">
+            <div id="ct"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mx-2 py-2 px-2"></div>
+    <script>
+      var lan = "";
+    </script>
+    {% if not 'LANG' in session %}
+    <script>
+      window.location.assign("/set-session-lang/");
+    </script>
+    {% elif session['LANG'] == 'EN' %}
+    <script>
+      lan = "EN";
+    </script>
+    {% else %}
+    <script>
+      lan = "TH";
+    </script>
+    {% endif %} {% endblock %} {% block body %} {% endblock %} {% block footer
+    %}
+    <div class="mx-2 my-1" align="end">
+      <!-- Go to top button with beautiful icon -->
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+      />
+      <a href="#">
+        <button class="btn btn-sm btn-warning">
+          <span class="material-symbols-outlined"> arrow_circle_up </span
+          ><br />To top
+        </button></a
+      >
+    </div>
+    <footer class="px-5 py-3 bg-info" align="center" id="footer">
+      <span style="font-weight: bold">Christmas 2022 App Info</span>
+      <div id="about"></div>
+    </footer>
+    {% endblock %}
+  </body>
+  <script>
+    function getAppIn() {
+      fetch("/return-christmas2022remaster-app-info")
+        .then((respone) => respone.text())
+        .then((respone) => {
+          console.log(respone);
+          const ele = document.getElementById("about");
+          ele.innerHTML = respone;
+        })
+        .catch(console.error());
+    }
+  </script>
+</html>

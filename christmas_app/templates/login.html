@@ -1,0 +1,113 @@
+{% extends 'root.html' %} {% block title %} LOGIN {% endblock %} {% block body
+%}
+<style>
+  body {
+    background-image: url("https://cdn.pixabay.com/photo/2022/05/01/16/22/the-calendar-7167933_1280.png");
+
+    background-size: 90%;
+    animation: gradient 12s ease infinite;
+    height: 110vh;
+  }
+  div.login {
+    opacity: 0.9;
+  }
+</style>
+<div class="login">
+  <div class="mx-5 my-2 py-4 px-5">
+    <h2 align="center" style="color: aqua; font-weight: bolder">LOGIN</h2>
+
+    <form
+      class="form-control form-control-lg border border-3 border-success"
+      action="/login"
+      method="POST"
+    >
+      <div class="py-2 my-1" align="center">
+        <label for="inputUsername" class="my-2">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputUsername"
+          name="inputUsername"
+          placeholder="First Name"
+        />
+        <small
+          >Default username is your first name.<br />Not sure you have a
+          pre-defined account? Please click the grey button below to
+          check!</small
+        >
+      </div>
+      <div class="py-2" align="center">
+        <label for="inputPassword" class="my-2">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword"
+          name="inputPassword"
+          placeholder="Password"
+        />
+        <small
+          >Default password is your birthdate in the format: MM-DD<br />Ex. DOB
+          is Dec 01. You might type "12-01"</small
+        ><br />
+        <h5>
+          I strongly suggest you to
+          <strong>change password immediately </strong>after logged in if this
+          is your first time.
+        </h5>
+        <div class="col-6">
+          <div class="input-group mb-3">
+            <div class="input-group-text">
+              <input
+                class="form-check-input mt-0"
+                type="checkbox"
+                name="next"
+                aria-label="Checkbox for following text input"
+              />
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              style="background-color: aquamarine; text-align: center"
+              aria-label="Text input with checkbox"
+              value="Change password after logged in"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row gap-2 py-2">
+        <button
+          type="submit"
+          class="btn btn-lg btn-primary mb-3"
+          align="center"
+        >
+          Confirm Identity
+        </button>
+      </div>
+
+      <div class="py-1 my-2" align="center">
+        <button
+          type="button"
+          class="btn btn-secondary mb-3"
+          onclick="theChecker('login-integrated')"
+        >
+          Not sure you have pre-defined account?
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="px-5 my-3" id="checker" align="center"></div>
+</div>
+<!-- <script>
+  var state = document.getElementById("checker");
+  state.style.display = "none";
+  function checkToggle() {
+    if (state.style.display === "none") {
+      state.style.display = "block";
+    } else {
+      state.style.display = "none";
+    }
+    // document.getElementById("checker").style.display = "block";
+  }
+</script> -->
+{% endblock %}

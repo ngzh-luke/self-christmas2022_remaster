@@ -1,0 +1,65 @@
+{% extends 'root.html' %} {% block title %} {{title}} {% endblock %} {% block
+body %}
+<style>
+  body {
+    height: auto;
+  }
+</style>
+<div class="py-1 mx-3 px-5 my-2" align="center">
+  <h1 style="font-weight: bolder; color: aquamarine">
+    Merry Christmas and Happy New Year 2023, {% if user.alias == "Addy" %}
+    Addy{% elif user.alias == "Evander" %} Evander{%else%}{% endif %}
+  </h1>
+  <div align="end">
+    <h4 style="color: royalblue">
+      Customized for: {% if user.alias == "Addy" %} Addy{% elif user.alias ==
+      "Evander" %} Evander{%else%}{% endif %}
+    </h4>
+  </div>
+  <p style="font-size: x-large">
+    <span style="color: blanchedalmond"
+      >{% block msg %}{{msg_addy}}{% endblock %}</span
+    ><br />
+  </p>
+
+  <div class="mx-2 px-2 py-1" id="jingle_bells">
+    <div class="align-self-center">
+      <label for="jingle-bells" style="color: aqua">Song: Jingle Bells</label>
+    </div>
+    <iframe
+      name="jingle-bells"
+      class="responsive-iframe"
+      src="https://www.youtube.com/embed/Izyf8uRf0YU"
+      title="Jingle bells, Jingle bells, Jingle all the way! (christmas song for kids with lyrics)"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="mx-2 px-2 py-2 my-2" id="santa_claus_is_coming_to_town">
+    <div class="align-self-center">
+      <label for="Santa-Claus-Is-Coming-To-Town" style="color: aqua"
+        >Song: Santa Claus Is Coming To Town</label
+      >
+    </div>
+    <iframe
+      name="Santa-Claus-Is-Coming-To-Town"
+      class="responsive-iframe"
+      src="https://www.youtube.com/embed/x9LYRyDj3po"
+      title="Santa Claus Is Coming To Town With Lyrics | Popular Christmas Carols For The Tiny Tots"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div align="start" style="color: darkcyan">
+    <p style="font-size: large">
+      <br />Best, <br />
+      Kan
+      <br />December, 2022
+    </p>
+  </div>
+  <br />***
+</div>
+{% endblock %}

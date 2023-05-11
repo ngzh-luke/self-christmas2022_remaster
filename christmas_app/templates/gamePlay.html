@@ -1,0 +1,625 @@
+{% extends 'gameLanding.html' %} {% block title %} Play Game {% endblock %} {%
+block body %} {% include 'pyscript.html' %}
+<!-- don't forget to edit in the questionsManager.html and other game html file related as well -->
+<style>
+  .swal2-popup {
+    font-size: 1.6rem !important;
+    font-family: "Kodchasan", sans-serif;
+  }
+  body {
+    background-image: linear-gradient(
+      to top right,
+      #dfe890 0%,
+      #82d1cc 50%,
+      #3a44db 100%
+    );
+    background-size: 500% 500%;
+    animation: gradient 18s alternate-reverse infinite;
+    height: auto;
+  }
+  .question {
+    opacity: 0.8;
+  }
+</style>
+
+<div class="my-2 py-2">
+  <div class="text-center my-3 py-2 px-5 mx-5" align="center">
+    <div class="py-3 px-3" align="start">
+      <a href="/game/">
+        <button class="btn btn-secondary">&eqslantless; Back</button></a
+      >
+    </div>
+    <div class="question">
+      <form
+        class="form-control form-control-lg border border-3 border-warning"
+        action="/have-fun-with-my-game/submit/"
+        method="POST"
+      >
+        <div class="py-2 my-1" align="center">
+          <h2 style="color: #3a44db; font-weight: bold">
+            How well you know me?
+          </h2>
+        </div>
+        <!-- Q1 -->
+        <div class="py-2 mx-2 q1">
+          <h4 align="start">
+            Question 1: What is the name that can be used to recognize me?
+          </h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q1"
+                  id="q1a"
+                  value="correct"
+                />
+                <label class="form-check-label stretched-link" for="q1a">
+                  Ning-Nong
+                </label>
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q1"
+                  id="q1b"
+                  value="on"
+                />
+                <label class="form-check-label stretched-link" for="q1b">
+                  Lukas
+                </label>
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q1"
+                  id="q1c"
+                  value="on"
+                />
+                <label class="form-check-label stretched-link" for="q1c">
+                  Xiao Zhao
+                </label>
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q2 -->
+        <div class="py-2 mx-2 q2">
+          <h4 align="start">Question 2: When did I born?</h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  id="q2a"
+                  value="on"
+                />
+                <label class="form-check-label stretched-link" for="q2a">
+                  1000 years ago
+                </label>
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  id="q2b"
+                  value="correct"
+                />
+                <label class="form-check-label stretched-link" for="q2b">
+                  (MM-DD) 04-11
+                </label>
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  id="q2c"
+                  value="on"
+                />
+                <label class="form-check-label stretched-link" for="q2c">
+                  (MM-DD) 11-04
+                </label>
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q3 -->
+        <div class="py-2 mx-2 q3">
+          <h4 align="start">
+            Question 3: Green jello is definitely...in my opinion
+          </h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  id="q3a"
+                  value="on"
+                />
+                <label class="form-check-label stretched-link" for="q3a">
+                  a (main) dish that taste really awesome
+                </label>
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  id="q3b"
+                  value="correct"
+                />
+                <label class="form-check-label stretched-link" for="q3b">
+                  a dessert that taste really awesome
+                </label>
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  id="q3c"
+                  value="on"
+                />
+                <label class="form-check-label stretched-link" for="q3c">
+                  a thing we taste in Thanksgiving
+                </label>
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q4 -->
+        <div class="py-2 mx-2 q4">
+          <h4 align="start">Question 4: What Disney movie I like the most?</h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q4"
+                  value="on"
+                  id="q4a"
+                />
+                <label class="form-check-label stretched-link" for="q4a"
+                  >Tangled</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q4"
+                  value="on"
+                  id="q4b"
+                />
+                <label class="form-check-label stretched-link" for="q4b"
+                  >Wall-E</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q4"
+                  value="correct"
+                  id="q4c"
+                />
+                <label class="form-check-label stretched-link" for="q4c"
+                  >Frozen</label
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q5 -->
+        <div class="py-2 mx-2 q5">
+          <h4 align="start">
+            Question 5: What is the first country I have visited aboard?
+          </h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q5"
+                  value="correct"
+                  id="q5a"
+                />
+                <label class="form-check-label stretched-link" for="q5a"
+                  >India</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q5"
+                  value="on"
+                  id="q5b"
+                />
+                <label class="form-check-label stretched-link" for="q5b"
+                  >U.S.</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q5"
+                  value="on"
+                  id="q5c"
+                />
+                <label class="form-check-label stretched-link" for="q5c"
+                  >Malaysia</label
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q6 -->
+        <div class="py-2 mx-2 q6">
+          <h4 align="start">
+            Question 6: What is the thing you think I love doing the most among
+            the list?
+          </h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q6"
+                  value="on"
+                  id="q6a"
+                />
+                <label class="form-check-label stretched-link" for="q6a"
+                  >Coding is real!</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q6"
+                  value="on"
+                  id="q6b"
+                />
+                <label class="form-check-label stretched-link" for="q6b"
+                  >Eating for sure!</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q6"
+                  value="correct"
+                  id="q6c"
+                />
+                <label class="form-check-label stretched-link" for="q6c"
+                  >Gotta be sleeping!</label
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q7 -->
+        <div class="py-2 mx-2 q7">
+          <h4 align="start">Question 7: Who do you think I am?</h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q7"
+                  value="correct"
+                  id="q7a"
+                />
+                <label class="form-check-label stretched-link" for="q7a"
+                  >I am everything you could ever imagine!</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q7"
+                  value="on"
+                  id="q7b"
+                />
+                <label class="form-check-label stretched-link" for="q7b"
+                  >I am an ordinary guy from Bangkok, Thailand.</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q7"
+                  value="on"
+                  id="q7c"
+                />
+                <label class="form-check-label stretched-link" for="q7c"
+                  >I am a programming addicted guy.</label
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q8 -->
+        <div class="py-2 mx-2 q8">
+          <h4 align="start">
+            Question 8: What super hero in the list you think I like the most?
+            (Probably would like to be)
+          </h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q8"
+                  value="correct"
+                  id="q8a"
+                />
+                <label class="form-check-label stretched-link" for="q8a"
+                  >Iron Man</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q8"
+                  value="on"
+                  id="q8b"
+                />
+                <label class="form-check-label stretched-link" for="q8b"
+                  >The Arrow (Green Arrow)</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q8"
+                  value="on"
+                  id="q8c"
+                />
+                <label class="form-check-label stretched-link" for="q8c"
+                  >Doctor Strange</label
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q9 -->
+        <div class="py-2 mx-2 q9">
+          <h4 align="start">
+            Question 9: What job in the list I would like to do when I was
+            young?
+          </h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q9"
+                  value="on"
+                  id="q9a"
+                />
+                <label class="form-check-label stretched-link" for="q9a"
+                  >Programmer</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q9"
+                  value="correct"
+                  id="q9b"
+                />
+                <label class="form-check-label stretched-link" for="q9b"
+                  >Pilot</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q9"
+                  value="on"
+                  id="q9c"
+                />
+                <label class="form-check-label stretched-link" for="q9c"
+                  >Milionaire</label
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!-- Q10 -->
+        <div class="py-2 mx-2 q10">
+          <h4 align="start">
+            Question 10: If I have an ability of going back in time, what do you
+            think I will do?
+          </h4>
+          <ul class="list-group">
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q10"
+                  value="on"
+                  id="q10a"
+                />
+                <label class="form-check-label stretched-link" for="q10a"
+                  >Fix what I have mistakenly done</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-1">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q10"
+                  value="on"
+                  id="q10b"
+                />
+                <label class="form-check-label stretched-link" for="q10b"
+                  >Do something different for a better outcome (a better
+                  future)</label
+                >
+              </li>
+            </div>
+            <div class="form-check my-3">
+              <li
+                class="list-group-item list-group-item-action list-group-item-dark rounded"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q10"
+                  value="correct"
+                  id="q10c"
+                />
+                <label class="form-check-label stretched-link" for="q10c"
+                  >Not go back at all</label
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
+        <br />
+        <!-- Submit -->
+        <div class="row py-2 px-5 mx-3" align="center">
+          <button
+            type="submit"
+            class="btn btn-lg btn-success mb-3"
+            align="center"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+      <div class="py-3 px-3" align="start">
+        <a href="/game/">
+          <button class="btn btn-secondary">&eqslantless; Back</button></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- [not applied] pyscript write hiddenly to inner html and use a function to grap that data and put as a value in hidden input form, once user submit it will be post method (no json) -->

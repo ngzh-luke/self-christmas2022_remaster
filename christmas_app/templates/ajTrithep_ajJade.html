@@ -1,0 +1,43 @@
+{% extends 'root.html' %} {% block title %} {{title}} {% endblock %} {% block
+body %}
+<style>
+  body {
+    height: auto;
+  }
+</style>
+<div class="py-1 mx-3 px-5 my-2" align="center">
+  <h1 style="font-weight: bolder; color: aquamarine">
+    สวัสดีปีใหม่ ๒๕๖๖ ครับ, {% if user.alias == "AjJade" %} อาจารย์เจต{% elif
+    user.alias == "AjTrithep" %} อาจารย์ไตรเทพ{%else%}{% endif %}
+  </h1>
+  <div align="end">
+    <h4 style="color: royalblue">
+      Customized for: {% if user.alias == "AjJade" %} อาจารย์เจตวิภา{% elif
+      user.alias == "AjTrithep" %} อาจารย์ไตรเทพ{%else%}{% endif %}
+    </h4>
+  </div>
+  <p style="font-size: x-large">
+    <span style="color: blanchedalmond"
+      >{% block msg %}เนื่องในวาระขึ้นปีใหม่ ๒๕๖๖
+      ผมขออาราธนาคุณพระศรีรัตนตรัยดลบันดาลให้ครูสมปราถนาในทุกๆสิ่งครับ<br />
+      ผมขอขอบคุณครูที่ให้โอกาสผม ให้การช่วยเหลือ
+      สนับสนุนผมและผลักดันผมมาโดยตลอดครับ
+      โดยเฉพาะโอกาสในการช่วยเตรียมทีมแข่งและการให้มาเป็นครูผู้ช่วยฝึกหัด สอนคาบ
+      7-8 นับว่าเป็นประสบการณ์และโอกาสที่หาได้ยาก
+      ผมในตอนนี้ก็ยังเป็นเพียงลูกศิษย์ตัวน้อยๆ
+      ลำพังแค่เพียงเท่านี้ไม่มีทางเทียบได้กับสิ่งที่ครูสอนสั่งผมได้เลย
+      แต่ผมก็ยังหวังว่าอนาคตอันใกล้นี้ให้ได้ผมมีโอกาสตอบแทนคุณของครูอีกนะครับ {%
+      endblock %}</span
+    ><br />
+  </p>
+
+  <div align="start" style="color: darkcyan">
+    <p style="font-size: large">
+      <br />ด้วยรักและความเคารพอย่างสูง, <br />
+      กิตติพิชญ์ (กานต์)
+      <br />ธันวาคม ๒๕๖๕
+    </p>
+  </div>
+  <br />***
+</div>
+{% endblock %}

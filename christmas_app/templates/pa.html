@@ -1,0 +1,30 @@
+{% extends 'root.html' %} {% block title %} {{title}} {% endblock %} {% block
+body %}
+<style>
+  body {
+    height: 90vh;
+  }
+</style>
+<div class="py-3 mx-3 my-2 px-5" align="center">
+  <h1 style="font-weight: bolder; color: aquamarine">
+    สวัสดีปีใหม่ ๒๕๖๖ ครับ, {% if user.alias == "Pa" %} ป๋า{% elif user.alias ==
+    "Mama" %} หม่าม้า{%else%}{% endif %}
+  </h1>
+  <br />
+
+  <p style="font-size: x-large">
+    &emsp;<span style="color: blanchedalmond"
+      >จริงๆ ก็อยากเขียนอะไรในนี้นะ แต่ผมว่า
+      ผมใช้วิธีอื่นถ่ายทอดน่าจะดีกว่านะครับ</span
+    >
+  </p>
+  <div align="start" style="color: darkcyan">
+    <p style="font-size: large">
+      <br />ด้วยความเคารพอย่างสูง, <br />
+      กานต์
+      <br />ธันวาคม ๒๕๖๕
+    </p>
+  </div>
+  <br />***
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'root.html' %} {% block title %} {{title}} {% endblock %} {% block
+body %}
+<style>
+  body {
+    background-color: maroon;
+    background-image: none;
+    background-size: 100%;
+    height: fit-content;
+  }
+  .swal2-popup {
+    font-size: 1.8rem !important;
+    font-family: "Kodchasan", sans-serif;
+  }
+</style>
+<!-- <div class="dialog" style="background-color: rgba(223, 223, 223, 0.7)">
+  <div
+    class="text-center my-4 py-4 px-5 mx-5 border border-3 border-dark border-start-0 border-end-0 rounded"
+    align="center"
+  >
+    <h3 style="font-weight: bolder; color: red">
+      Your account is at risk, please consider changing your password
+    </h3>
+    <button class="btn btn-lg btn-success" onclick="redirect_change()">
+      Change Now!</button
+    ><br /><br />
+    <button class="btn btn-light" onclick="redirect_cake()">Maybe Later</button>
+  </div>
+</div>
+
+<script>
+  function redirect_change() {
+    window.location.assign("/wanna-change-password/");
+  }
+  function redirect_cake() {
+    window.location.assign("/cake");
+  }
+</script> -->
+{% if warn %}
+<script>
+  warner((msg = "{{msg}}"));
+</script>
+{% endif %} {% if query %}
+<script>
+  query();
+</script>
+{% endif %} {% endblock %}{% block footer %} {% endblock %}

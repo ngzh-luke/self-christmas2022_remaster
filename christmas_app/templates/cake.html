@@ -1,0 +1,62 @@
+{% extends 'root.html' %} {% block title %} CAKE {% endblock %} {% block body %}
+
+<style>
+  body {
+    height: 100vh;
+  }
+</style>
+
+<div
+  class="text-center my-3 py-3 px-5 mx-5 border border-3 border-info rounded-top"
+  align="center"
+>
+  <div class="px-3 py-3" align="end">
+    <h3 style="font-size: xx-large">Cake</h3>
+    <div class="vstack gap-3" align="center">
+      <br />
+      <p>
+        Welcome to "Present2022" Application. All of the features are fully
+        customized for you, feel free to select the options from the navigation
+        bar above!
+      </p>
+      <ul>
+        <h3 style="font-size: large; color: aliceblue">
+          <strong>Quick Links (Open in new tab)</strong>
+        </h3>
+        <li>
+          <a href="/game" target="_blank"
+            ><button class="btn btn-lg btn-info">Game</button></a
+          >
+        </li>
+        <br />
+        <li>
+          <a href="/joy-is-arrived/" target="_blank"
+            ><button class="btn btn-danger">General Celebration</button></a
+          >
+        </li>
+        <br />
+        <li>
+          <a href="/customized-view/" target="_blank"
+            ><button class="btn btn-lg btn-success">
+              Customized Celebration
+            </button></a
+          >
+        </li>
+        <br />
+        <li>
+          <a href="/my-account" target="_blank"
+            ><button class="btn btn-light">My Account</button></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+<!-- - a button leads to customized features page
+  - a button leads to game
+  - a button leads to account management page
+  - a button leads to about page
+  - a button to say something to me
+  - a button leads to report bugs -->
