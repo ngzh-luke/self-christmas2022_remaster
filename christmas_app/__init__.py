@@ -15,10 +15,13 @@ try:
 except:
     PORT = 5500
 
+try:
+    DOMAIN = en_var('server')
+except:
+    DOMAIN = f"christmas2022.lukecreated.com:{PORT}"
+
 
 def create_app():
-    # showcases.lukecreated.com
-    DOMAIN = f"christmas2022.lukecreated.com:{PORT}"
     app = Flask(__name__)
     f_bcrypt = Bcrypt()
     app.config['FLASK_ADMIN-SWATCH'] = 'cerulean'
@@ -132,7 +135,7 @@ class About():
 
 
 systemInfoObject = About(version=2.2, status='Public Release',
-                         build=20230512, version_note='prepare to deploy on Render')
+                         build=20230512, version_note='deploy on Render')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 

@@ -1,7 +1,7 @@
 # self-christmas2022 Remaster App
 
 - self-christmas2022 remaster source code
-- The application is now live at: ~~<https://self-christmas2022-m96o-main-h56fefi5ya-wm.a.run.app>~~
+- The application is now live at: <https://christmas2022.lukecreated.com/>
 - App's database is hosting on Railway ^_^
 
 ---
