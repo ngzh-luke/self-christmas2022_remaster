@@ -131,8 +131,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=2.1, status='Remastering#2',
-                         build=20230512, version_note='add subdomain + external database connected (Railway)')
+systemInfoObject = About(version=2.2, status='Public Release',
+                         build=20230512, version_note='prepare to deploy on Render')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 

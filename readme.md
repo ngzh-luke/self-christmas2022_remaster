@@ -15,14 +15,14 @@ It is meant to be the present in an occasion of Christmas 2022 and surprise for 
 
 - Developer: **Kittipich "Luke" Aiumbhornsin**
 
-- Development Status: **Remastering**
+- Development Status: **Public Release**
 
 - License information: **license.md** [go to file](license.md)
 
 - Development history: **changelog.md** [go to file](changelog.md)
 
-Current Status: **Remastering#2**
-Current Version: **2.1**
+Current Status: **Public Release**
+Current Version: **2.2**
 Updated: **May 12, 2023**
 
 ---
