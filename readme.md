@@ -2,6 +2,7 @@
 
 - self-christmas2022 remaster source code
 - The application is now live at: ~~<https://self-christmas2022-m96o-main-h56fefi5ya-wm.a.run.app>~~
+- App's database is hosting on Railway ^_^
 
 ---
 
@@ -20,9 +21,9 @@ It is meant to be the present in an occasion of Christmas 2022 and surprise for 
 
 - Development history: **changelog.md** [go to file](changelog.md)
 
-Current Status: **Pre-remastering**
-Current Version: **2.0**
-Updated: **May 11, 2023**
+Current Status: **Remastering#2**
+Current Version: **2.1**
+Updated: **May 12, 2023**
 
 ---
 
