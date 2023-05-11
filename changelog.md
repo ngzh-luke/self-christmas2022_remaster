@@ -97,7 +97,7 @@ Config the System version in `__init__.py`
 
 - Remastering#2: add subdomain + external database connected (Railway) on May 12, 2023 -> **2.1**
 
-- Public Release: prepare to deploy on Render on May 12, 2023 -> **2.2**
+- Public Release: deploy on Render on May 12, 2023 -> **2.2**
 
 ## > Notes
 

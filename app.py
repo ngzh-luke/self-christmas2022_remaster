@@ -10,7 +10,9 @@ print("SystemInfo -> ", systemInfo)
 # print("Environment Variable: "+ en_var('christmas_app2022'))
 
 # print(pytz.all_timezones) # List out all the timezone available
-if __name__ == '__main__':
-    app = create_app()
-    # app.run(port=int(en_var("PORT", 8080)),
-    #         debug=en_var("DEBUG", False))  # , host='0.0.0.0',
+# if __name__ == '__main__':
+#     app = create_app()
+#     app.run(port=int(en_var("PORT", 8080)),
+#         debug=en_var("DEBUG", False))  # , host='0.0.0.0',
+
+app = create_app()
