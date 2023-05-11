@@ -35,7 +35,7 @@ def create_app():
     app.config['PERMANENT_SESSION_LIFETIME'] = TIMEOUT
     # app.config['']
     app.config['TIMEZONE'] = 'Asia/Bangkok'
-    app.config['SERVER_NAME'] = DOMAIN
+    # app.config['SERVER_NAME'] = DOMAIN
 
     f_bcrypt.init_app(app)
     db.init_app(app)
