@@ -24,7 +24,7 @@
 - Home page contains buttons linked to
   If any login status - general celebration view - how well you know me game
   If logged in status only - Customized app/memories/features for user only
-- DB will be [postgress]
+- DB will be [Postgress on Railway]
 - DB for User:
   - str fname, not null, primary key | First name
   - str password, not null | Password

@@ -95,6 +95,8 @@ Config the System version in `__init__.py`
 
 - Remastering: remastering#1 on May 11, 2023 -> **2.01**
 
+- Remastering#2: add subdomain + external database connected (Railway) on May 12, 2023 -> **2.1**
+
 ## > Notes
 
 - <https://www.w3schools.com/howto/howto_css_parallax.asp>

@@ -59,7 +59,7 @@ def logIn():
                 if changePS_AfterLogin:
                     return redirect(url_for("acc.changePS", user_alias=current_user.alias))
                 # return redirect(url_for("features.cake", user_alias=current_user.alias))
-                return redirect(url_for("features.cake", user=current_user))
+                return redirect(url_for("features.cake", user=current_user, user_alias=current_user.alias))
 
             else:
                 flash("Password or the username is incorrect!", category='error')

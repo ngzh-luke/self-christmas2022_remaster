@@ -10,9 +10,15 @@ db = SQLAlchemy()
 DB_NAME = en_var(
     'DATABASE_URL', "sqlite:///christmas_app2022_database.sqlite")
 TIMEOUT = timedelta(hours=1)
+try:
+    PORT = en_var("port")
+except:
+    PORT = 5500
 
 
 def create_app():
+    # showcases.lukecreated.com
+    DOMAIN = f"christmas2022.lukecreated.com:{PORT}"
     app = Flask(__name__)
     f_bcrypt = Bcrypt()
     app.config['FLASK_ADMIN-SWATCH'] = 'cerulean'
@@ -26,6 +32,7 @@ def create_app():
     app.config['PERMANENT_SESSION_LIFETIME'] = TIMEOUT
     # app.config['']
     app.config['TIMEZONE'] = 'Asia/Bangkok'
+    app.config['SERVER_NAME'] = DOMAIN
 
     f_bcrypt.init_app(app)
     db.init_app(app)
@@ -58,31 +65,31 @@ def create_app():
 
     from .models import User
 
-    @app.before_request
-    def acc():
+    # @app.before_request
+    # def acc():
 
-        try:
-            d1 = User(fname="ADMIN", alias="admin",
-                      password=generate_password_hash("admin").decode('utf-8'))
-            db.session.add(d1)
-            db.session.commit()
-            try:
-                from .accounts import create_accounts
-                a = create_accounts()
-                db.session.add_all(a)
-                db.session.commit()
+    #     try:
+    #         d1 = User(fname="ADMIN", alias="admin",
+    #                   password=generate_password_hash("admin").decode('utf-8'))
+    #         db.session.add(d1)
+    #         db.session.commit()
+    #         try:
+    #             from .accounts import create_accounts
+    #             a = create_accounts()
+    #             db.session.add_all(a)
+    #             db.session.commit()
 
-            except Exception as e:
-                db.session.rollback()
-                flash(f'{e}', category='error')
+    #         except Exception as e:
+    #             db.session.rollback()
+    #             flash(f'{e}', category='error')
 
-        except OperationalError:
-            with app.app_context():
-                db.create_all()
+    #     except OperationalError:
+    #         with app.app_context():
+    #             db.create_all()
 
-        except Exception as e:
-            db.session.rollback()
-            flash(f'{e}', category='error')
+    #     except Exception as e:
+    #         db.session.rollback()
+    #         flash(f'{e}', category='error')
 
     # config the user session
     @app.before_request
@@ -124,8 +131,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=2.01, status='Remastering',
-                         build=20230511, version_note='remastering#1')
+systemInfoObject = About(version=2.1, status='Remastering#2',
+                         build=20230512, version_note='add subdomain + external database connected (Railway)')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
