@@ -8,6 +8,7 @@ from . import db
 
 account = Blueprint('acc', __name__)
 
+
 @account.route('/<string:user_alias>/account-management/', methods=["GET"])
 @fresh_login_required
 def manager(user_alias):
@@ -17,12 +18,16 @@ def manager(user_alias):
         data = session['risk']
     else:
         data = None
-    return render_template('account.html', user=current_user, auto=False, data=[current_user.fname, current_user.alias,data])
+    return render_template('account.html', user=current_user, auto=False, data=[current_user.fname, current_user.alias, data])
 
-@account.route('/<string:user_alias>/account-management/change-password/', methods=['POST','GET'])
+
+@account.route('/<string:user_alias>/account-management/change-password/', methods=['POST', 'GET'])
 @fresh_login_required
 def changePS(user_alias):
-    session['current'] = '/' + str(current_user.alias) + '/account-management/change-password/'
+    if user_alias == 'admin':
+        return "AS a demo account, you can't change password."
+    session['current'] = '/' + \
+        str(current_user.alias) + '/account-management/change-password/'
     updateSessionTime()
     if request.method == 'POST':
         current = request.form.get("current")
@@ -31,7 +36,8 @@ def changePS(user_alias):
         u = User.query.filter_by(alias=user_alias).first()
         if check_password_hash(current_user.password, current):
             if (new == None or new == '') or (confirmNew == None or confirmNew == ''):
-                flash("Neither new password can be empty nor the system can confirm new password", category='error')
+                flash(
+                    "Neither new password can be empty nor the system can confirm new password", category='error')
                 return redirect(url_for("acc.manager", user_alias=current_user.alias))
             elif (new == confirmNew):
                 updated = generate_password_hash(new).decode('utf-8')
@@ -47,12 +53,14 @@ def changePS(user_alias):
         data = session['risk']
     else:
         data = None
-    return render_template('account.html', user=current_user, auto=True, data=[current_user.fname, current_user.alias,data])
+    return render_template('account.html', user=current_user, auto=True, data=[current_user.fname, current_user.alias, data])
+
 
 @account.route('/wanna-change-password/')
 @login_required
 def redirector():
     return redirect(url_for('acc.changePS', user_alias=current_user.alias))
+
 
 @account.route('/my-account/')
 @login_required

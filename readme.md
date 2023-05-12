@@ -2,7 +2,7 @@
 
 - self-christmas2022 remaster source code
 - The application is now live at: <https://christmas2022app.lukecreated.com/>
-- App's database is hosting on Railway ^_^
+- App's database is hosting on Railway while the website is deploy on Render ^_^
 
 ---
 
@@ -22,7 +22,7 @@ It is meant to be the present in an occasion of Christmas 2022 and surprise for 
 - Development history: **changelog.md** [go to file](changelog.md)
 
 Current Status: **Public Release**
-Current Version: **2.2**
+Current Version: **2.23**
 Updated: **May 12, 2023**
 
 ---

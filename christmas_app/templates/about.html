@@ -21,13 +21,17 @@
         This application is called <strong>"Christmas 2022"</strong>, developed
         using Flask micro web framework by
         <u><i>Kittipich "Luke" Aiumbhornsin.</i></u
-        ><br /><small>&copy;Kittipich Aiumbhornsin</small><br />It is meant to
-        be the present in an occasion of Christmas 2022 and surprise for my
-        beloved ones. I hope you guys enjoy the present I have prepared for you
-        guys this year. If you have anything to tell me, including comments,
-        suggestions, questions, or even some bugs report please feel free to
-        contact me or just click the buttons of actions below.' <br /><span
-          style="color: aliceblue"
+        ><br /><small>&copy;Kittipich Aiumbhornsin</small> with
+        <a
+          target="_blank"
+          href="https://github.com/ngzh-luke/self-christmas2022_remaster/blob/main/license.md"
+          >license</a
+        ><br />It is meant to be the present in an occasion of Christmas 2022
+        and surprise for my beloved ones. I hope you guys enjoy the present I
+        have prepared for you guys this year. If you have anything to tell me,
+        including comments, suggestions, questions, or even some bugs report
+        please feel free to contact me or just click the buttons of actions
+        below.' <br /><span style="color: aliceblue"
           ><u>System Info:</u><br />{{ab}}</span
         >
       </div>
@@ -38,6 +42,11 @@
         <h5><u>System Settings</u></h5>
         <ul>
           <li>
+            By visiting, you are agree to let the system uses cookies or
+            equivalent technology to serve you.
+            <u>Only necessary cookies are enebled</u>
+          </li>
+          <li>
             Site Language: {% if session['LANG'] == 'EN' %}ENGLISH{% else
             %}ไทย{% endif %} (Default = ENGLISH)
           </li>
@@ -47,10 +56,7 @@
           <li>Standard Account security check: <strong>True</strong></li>
           <li>
             Account security check frequency:
-            <strong
-              >Right after logged in and manually perform on Account management
-              page</strong
-            >
+            <strong>Manually perform on Account management page</strong>
           </li>
           <li>
             Needs fresh session to perform account security related process:

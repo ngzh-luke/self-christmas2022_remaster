@@ -1,7 +1,6 @@
 # Root file of the system
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.exc import PendingRollbackError, OperationalError
-from flask_bcrypt import Bcrypt, generate_password_hash
+from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, current_user
 from flask import Flask, Blueprint, render_template, abort, flash, session
 from decouple import config as en_var  # import the environment var
@@ -33,7 +32,6 @@ def create_app():
     app.config['REMEMBER_COOKIE_SECURE'] = True
     # set session timeout (need to use with before_request() below)
     app.config['PERMANENT_SESSION_LIFETIME'] = TIMEOUT
-    # app.config['']
     app.config['TIMEZONE'] = 'Asia/Bangkok'
     # app.config['SERVER_NAME'] = [DOMAIN, "christmas2022.lukecreated.com"]
 
@@ -55,6 +53,7 @@ def create_app():
     app.register_blueprint(game, url_prefix='/')
     app.register_blueprint(acc_security, url_prefix='/@system-@security-check')
     app.register_blueprint(cusViews, url_prefix='/')
+    app.register_error_handler(404, notFound)
 
     # with app.app_context(): # Drop all of the tables
     #     db.drop_all()
@@ -134,8 +133,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=2.2, status='Public Release',
-                         build=20230512, version_note='deploy on Render')
+systemInfoObject = About(version=2.23, status='Public Release',
+                         build=20230512, version_note='comprehensive improvements')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
@@ -150,3 +149,9 @@ def root_view():
         return render_template("root.html", user=current_user)
     else:
         abort(403)  # forbidden
+
+
+# handle not found
+def notFound(e):
+    """ not found 404 """
+    return render_template("404.html", user=current_user)

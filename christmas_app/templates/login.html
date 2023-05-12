@@ -1,19 +1,19 @@
 {% extends 'root.html' %} {% block title %} LOGIN {% endblock %} {% block body
 %}
 <style>
-  body {
+  /* body {
     background-image: url("https://cdn.pixabay.com/photo/2022/05/01/16/22/the-calendar-7167933_1280.png");
 
     background-size: 90%;
     animation: gradient 12s ease infinite;
     height: 110vh;
-  }
+  } */
   div.login {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 </style>
 <div class="login">
-  <div class="mx-5 my-2 py-4 px-5">
+  <div class="mx-5 my-1 py-1 px-5">
     <h2 align="center" style="color: aqua; font-weight: bolder">LOGIN</h2>
 
     <form
@@ -22,7 +22,9 @@
       method="POST"
     >
       <div class="py-2 my-1" align="center">
-        <label for="inputUsername" class="my-2">Username</label>
+        <label for="inputUsername" class="my-2"
+          ><span style="font-weight: bold">Username</span></label
+        >
         <input
           type="text"
           class="form-control"
@@ -36,8 +38,16 @@
           check!</small
         >
       </div>
-      <div class="py-2" align="center">
-        <label for="inputPassword" class="my-2">Password</label>
+      <div class="my-1" align="center">
+        <small style="color: red" class="center">
+          * Or try demo account using username as <u>admin</u> and password as
+          <u>admin</u> *
+        </small>
+      </div>
+      <div class="py-1" align="center">
+        <label for="inputPassword" class="my-2"
+          ><span style="font-weight: bold">Password</span>
+        </label>
         <input
           type="password"
           class="form-control"

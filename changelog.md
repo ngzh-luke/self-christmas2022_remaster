@@ -99,6 +99,10 @@ Config the System version in `__init__.py`
 
 - Public Release: deploy on Render on May 12, 2023 -> **2.2**
 
+- Public Release: minor bugs fixed on May 12, 2023 -> **2.22**
+
+- Public Release: comprehensive improvements on May 12, 2023 -> **2.23**
+
 ## > Notes
 
 - <https://www.w3schools.com/howto/howto_css_parallax.asp>
