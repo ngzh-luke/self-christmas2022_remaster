@@ -22,7 +22,7 @@ It is meant to be the present in an occasion of Christmas 2022 and surprise for 
 - Development history: **changelog.md** [go to file](changelog.md)
 
 Current Status: **Public Release**
-Current Version: **2.232**
+Current Version: **2.234**
 Updated: **May 15, 2023**
 
 ---

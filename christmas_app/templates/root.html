@@ -100,12 +100,12 @@
     </script>
 
     <nav
-      class="navbar sticky-top bg-light border-bottom border-4 border-warning"
+      class="navbar navbar-expand-sm sticky-top bg-light border-bottom border-3 border-warning"
     >
       <div class="container-fluid">
         <a class="navbar-brand" href="/"
-          >{% if session['LANG'] == "TH" %}ของขวัญ{% else %}Present{% endif
-          %}</a
+          >{% if session['LANG'] == "TH" %}คริสมาส 2565{% else %}Christmas
+          2022{% endif %}</a
         >
         <button
           class="navbar-toggler"
@@ -246,8 +246,8 @@
           </ul>
         </div>
 
-        <div class="logged-in-user mx-2" align="center">
-          <span class="input-group-text mx-3" id="basic-addon1"
+        <div class="logged-in-user mx-1" align="center">
+          <span class="input-group-text mx-2" id="basic-addon1"
             >@<a class="nav-link" href="/{{user.alias}}/account-management">
               <span style="color: green">&ensp;{{user.__str__()}}</span></a
             ></span
@@ -256,20 +256,20 @@
         {% endif %}
       </div>
       <!-- Language selector -->
-      <div class="lang mx-1 px-2">
+      <div class="lang mx-1 px-1">
         <form action="/set-session-lang/" method="POST">
           <button
             class="btn btn-outline-primary"
             id="liveToastBtn"
             onclick="langHelper(lan)"
           >
-            ไทย/ENGLISH
+            ไทย/ENG
           </button>
         </form>
       </div>
       <!-- show current time at id=ct -->
       <div class="show_time" style="color: rgb(233, 128, 146)">
-        <div class="mx-2" align="center">
+        <div class="mx-1" align="center">
           Current Time:
           <div class="navbar-text" style="color: grey">
             <div id="ct"></div>

@@ -105,6 +105,8 @@ Config the System version in `__init__.py`
 
 - Public Release: fixed some typos on May 15, 2023 -> **2.232**
 
+- Public Release: minors fixed on May 15, 2023 -> **2.234**
+
 ## > Notes
 
 - <https://www.w3schools.com/howto/howto_css_parallax.asp>

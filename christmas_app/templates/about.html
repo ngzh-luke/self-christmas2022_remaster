@@ -16,8 +16,8 @@
 >
   <div class="px-3 py-3" align="end">
     <h3 style="font-weight: bold">
-      About the Application {% if session['LANG'] == "TH" %}เกี่ยวกับ
-      Application{% else %}About the Application{% endif %}
+      {% if session['LANG'] == "TH" %}เกี่ยวกับ Application{% else %}About the
+      Application{% endif %}
     </h3>
     <div class="vstack" align="center">
       <div>

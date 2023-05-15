@@ -133,8 +133,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=2.232, status='Public Release',
-                         build=20230515, version_note='fixed some typos')
+systemInfoObject = About(version=2.234, status='Public Release',
+                         build=20230515, version_note='minors fixed')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
