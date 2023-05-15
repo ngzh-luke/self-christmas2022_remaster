@@ -27,11 +27,11 @@ def loggedUser_gameLanding(user_alias):
 
 
 @game.route('/as-a-guest/have-fun-with-my-game/')
-def guestUser_gameLanding():
+async def guestUser_gameLanding():
     session['current'] = '/as-a-guest/have-fun-with-my-game/'
     try:
         if User.get_id(current_user):
-            return redirect(url_for("game.loggedUser_gameLanding", user_alias=current_user.alias))
+            return await redirect(url_for("game.loggedUser_gameLanding", user_alias=current_user.alias))
     except:
         pass
     return render_template('gameLanding.html', user=current_user, game=Game.query.all())

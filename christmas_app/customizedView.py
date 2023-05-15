@@ -33,7 +33,7 @@ def redirector():
 @login_required
 def admin():
     session['current'] = '/customized-view/'
-    return "Customized for admin account logged in"
+    return "Customized view ^_^"
 
 
 @cusViews.route("/for/Dad/customized-celebration-view/")  # dad

@@ -1,5 +1,5 @@
-{% extends 'root.html' %} {% block title %} LOGIN {% endblock %} {% block body
-%}
+{% extends 'root.html' %} {% block title %}{% if session['LANG'] == "TH"
+%}เข้าสู่ระบบ{% else %}LOGIN{% endif %}{% endblock %} {% block body %}
 <style>
   /* body {
     background-image: url("https://cdn.pixabay.com/photo/2022/05/01/16/22/the-calendar-7167933_1280.png");
@@ -14,7 +14,9 @@
 </style>
 <div class="login">
   <div class="mx-5 my-1 py-1 px-5">
-    <h2 align="center" style="color: aqua; font-weight: bolder">LOGIN</h2>
+    <h2 align="center" style="color: aqua; font-weight: bolder">
+      {% if session['LANG'] == "TH" %}เข้าสู่ระบบ{% else %}LOGIN{% endif %}
+    </h2>
 
     <form
       class="form-control form-control-lg border border-3 border-success"
@@ -23,7 +25,10 @@
     >
       <div class="py-2 my-1" align="center">
         <label for="inputUsername" class="my-2"
-          ><span style="font-weight: bold">Username</span></label
+          ><span style="font-weight: bold"
+            >{% if session['LANG'] == "TH" %}ชื่อผู้ใช้{% else %}Username{%
+            endif %}</span
+          ></label
         >
         <input
           type="text"
@@ -46,7 +51,10 @@
       </div>
       <div class="py-1" align="center">
         <label for="inputPassword" class="my-2"
-          ><span style="font-weight: bold">Password</span>
+          ><span style="font-weight: bold"
+            >{% if session['LANG'] == "TH" %}รหัสผ่าน{% else %}Password{% endif
+            %}</span
+          >
         </label>
         <input
           type="password"
@@ -59,11 +67,11 @@
           >Default password is your birthdate in the format: MM-DD<br />Ex. DOB
           is Dec 01. You might type "12-01"</small
         ><br />
-        <h5>
+        <h6>
           I strongly suggest you to
           <strong>change password immediately </strong>after logged in if this
           is your first time.
-        </h5>
+        </h6>
         <div class="col-6">
           <div class="input-group mb-3">
             <div class="input-group-text">
@@ -91,7 +99,8 @@
           class="btn btn-lg btn-primary mb-3"
           align="center"
         >
-          Confirm Identity
+          {% if session['LANG'] == "TH" %}ยืนยันตัวตน{% else %}Confirm
+          Identity{% endif %}
         </button>
       </div>
 
@@ -101,7 +110,8 @@
           class="btn btn-secondary mb-3"
           onclick="theChecker('login-integrated')"
         >
-          Not sure you have pre-defined account?
+          {% if session['LANG'] == "TH" %}ไม่แน่ใจว่ามีบัญชีหรือไม่?{% else
+          %}Not sure you have pre-defined account?{% endif %}
         </button>
       </div>
     </form>

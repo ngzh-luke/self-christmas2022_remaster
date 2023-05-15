@@ -32,7 +32,7 @@ async function theChecker(loc = "") {
       "</form>";
   }
   Swal.fire({
-    title: "Submit your First Name",
+    title: "Submit your Firstname",
     html: htmlCode,
     showCancelButton: true,
     showConfirmButton: false,
@@ -117,9 +117,7 @@ async function riskLevelChecker() {
 // Pop up contact info
 async function contactMe() {
   htmlCode =
-    '<div class="email py-1 mx-1"><strong>Email:</strong> <i>contact@lukecreated.com</i></div>' +
-    '<div class="facetime py-1 mx-1"><strong>Facetime:</strong> <i>[through my number]</i></div>' +
-    '<div class="facebook py-1 mx-1"><strong>Facebook:</strong> <i>Luke Kittipich</i></div>';
+    '<div class="email py-1 mx-1"><strong>Email:</strong> <i>contact@lukecreated.com</i></div>';
   Swal.fire({
     title: "Reach me via...",
     icon: "info",
