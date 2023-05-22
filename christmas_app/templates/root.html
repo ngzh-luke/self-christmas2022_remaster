@@ -143,6 +143,12 @@
                     %}</a
                   >
                 </li>
+                <li>
+                  <a class="dropdown-item" href="https://lukecreated.com/"
+                    >{% if session['LANG'] == "TH" %}หน้าเริ่มต้น{% else %}Root
+                    Home{% endif %}</a
+                  >
+                </li>
               </ul>
             </li>
 
@@ -259,7 +265,7 @@
       <div class="lang mx-1 px-1">
         <form action="/set-session-lang/" method="POST">
           <button
-            class="btn btn-outline-primary"
+            class="btn btn-sm btn-outline-primary"
             id="liveToastBtn"
             onclick="langHelper(lan)"
           >
@@ -310,7 +316,7 @@
       >
     </div>
     <div class="mb-3"></div>
-    <footer class="px-5 py-1 bg-info fixed-bottom" align="center" id="footer">
+    <footer class="px-2 py-1 bg-info fixed-bottom" align="center" id="footer">
       <span style="font-weight: bold">Christmas 2022 App Info</span><br />
       <small>&copy;Kittipich Aiumbhornsin</small> with
       <a
