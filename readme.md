@@ -2,7 +2,7 @@
 
 - self-christmas2022 remaster source code
 - The application is now live at: <https://christmas2022app.lukecreated.com/>
-- App's database is hosting on Railway while the website is deploy on Render ^_^
+- Both Database and application are hosting on `Railway` ^_^
 
 ---
 
