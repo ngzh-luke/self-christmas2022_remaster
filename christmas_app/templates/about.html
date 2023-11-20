@@ -10,111 +10,115 @@
   }
 </style>
 
-<div
-  class="text-center my-3 py-3 px-5 mx-5 border border-3 border-dark rounded-top"
-  align="center"
->
-  <div class="px-3 py-3" align="end">
-    <h3 style="font-weight: bold">
-      {% if session['LANG'] == "TH" %}เกี่ยวกับ Application{% else %}About the
-      Application{% endif %}
-    </h3>
-    <div class="vstack" align="center">
-      <div>
-        This application is called <strong>"Christmas 2022"</strong>, developed
-        using Flask micro web framework by
-        <u><i>Kittipich "Luke" Aiumbhornsin.</i></u
-        ><br /><small>&copy;Kittipich Aiumbhornsin</small> with
-        <a
-          target="_blank"
-          href="https://github.com/ngzh-luke/self-christmas2022_remaster/blob/main/license.md"
-          >license</a
-        ><br />It is meant to be the present in an occasion of Christmas 2022
-        and surprise for my beloved ones. I hope you guys enjoy the present I
-        have prepared for you guys this year. If you have anything to tell me,
-        including comments, suggestions, questions, or even some bugs report
-        please feel free to contact me or just click the buttons of actions
-        below. <br /><span style="color: aliceblue"
-          ><u>System Info:</u><br />{{ab}}</span
-        >
+<div class="col-9">
+  <div
+    class="text-center my-3 py-3 px-5 mx-5 border border-3 border-dark rounded-top"
+    align="center"
+  >
+    <div class="px-3 py-3" align="end">
+      <h3 style="font-weight: bold">
+        {% if session['LANG'] == "TH" %}เกี่ยวกับ Application{% else %}About the
+        Application{% endif %}
+      </h3>
+      <div class="vstack" align="center">
+        <div>
+          This application is called <strong>"Christmas 2022"</strong>,
+          developed using Flask micro web framework by
+          <u><i>Kittipich "Luke" Aiumbhornsin.</i></u
+          ><br /><small>&copy;Kittipich Aiumbhornsin</small> with
+          <a
+            target="_blank"
+            href="https://github.com/ngzh-luke/self-christmas2022_remaster/blob/main/license.md"
+            >license</a
+          ><br />It is meant to be the present in an occasion of Christmas 2022
+          and surprise for my beloved ones. I hope you guys enjoy the present I
+          have prepared for you guys this year. If you have anything to tell me,
+          including comments, suggestions, questions, or even some bugs report
+          please feel free to contact me or just click the buttons of actions
+          below. <br /><span style="color: aliceblue"
+            ><u>System Info:</u><br />{{ab}}</span
+          >
+        </div>
       </div>
-    </div>
-    {% if session['timeLeft'] %} {{session['timeLeft']}} {% endif %}
-    <div class="hstack pt-4" align="start">
-      <div class="vstack gap-2">
-        <h5><u>System Settings</u></h5>
-        <ul>
-          <li>
-            By visiting, you are agree to let the system uses cookies or
-            equivalent technology to serve you.
-            <u>Only necessary cookies are enebled</u>
-          </li>
-          <li>
-            Site Language: {% if session['LANG'] == 'EN' %}ENGLISH{% else
-            %}ไทย{% endif %} (Default = ENGLISH)
-          </li>
-          <li>
-            Timeout (session time after last activity): <strong>60 mins</strong>
-          </li>
-          <li>Standard Account security check: <strong>True</strong></li>
-          <li>
-            Account security check frequency:
-            <strong>Manually perform on Account management page</strong>
-          </li>
-          <li>
-            Needs fresh session to perform account security related process:
-            <strong>True</strong>
-          </li>
-          <li>
-            Advanced strong password evaluation feature: <strong>False</strong>
-          </li>
-          <li>
-            Desktop experiences customized.
-            <u>(mobile devices might not offer the best experiences</u>, please
-            consider using desktop devices instead)
-          </li>
-        </ul>
-      </div>
-      <div class="vstack gap-2" align="center">
-        <button class="btn btn btn-success" onclick="contactMe()">
-          Contact Me
-        </button>
-        <a href="mailto:bugsreport@lukecreated.com" target="_blank"
-          ><button class="btn btn-lg btn-danger">
-            Bugs report (via email)
-          </button></a
-        >
-        <a
-          href="https://github.com/ngzh-luke/self-christmas2022_remaster"
-          target="_blank"
-          ><button class="btn btn-sm btn-primary">
-            Application source code
-          </button></a
-        >
+      {% if session['timeLeft'] %} {{session['timeLeft']}} {% endif %}
+      <div class="hstack pt-4" align="start">
+        <div class="vstack gap-2">
+          <h5><u>System Settings</u></h5>
+          <ul>
+            <li>
+              By visiting, you are agree to let the system uses cookies or
+              equivalent technology to serve you.
+              <u>Only necessary cookies are enebled</u>
+            </li>
+            <li>
+              Site Language: {% if session['LANG'] == 'EN' %}ENGLISH{% else
+              %}ไทย{% endif %} (Default = ENGLISH)
+            </li>
+            <li>
+              Timeout (session time after last activity):
+              <strong>60 mins</strong>
+            </li>
+            <li>Standard Account security check: <strong>True</strong></li>
+            <li>
+              Account security check frequency:
+              <strong>Manually perform on Account management page</strong>
+            </li>
+            <li>
+              Needs fresh session to perform account security related process:
+              <strong>True</strong>
+            </li>
+            <li>
+              Advanced strong password evaluation feature:
+              <strong>False</strong>
+            </li>
+            <li>
+              Desktop experiences customized.
+              <u>(mobile devices might not offer the best experiences</u>,
+              please consider using desktop devices instead)
+            </li>
+          </ul>
+        </div>
+        <div class="vstack gap-2" align="center">
+          <button class="btn btn btn-success" onclick="contactMe()">
+            Contact Me
+          </button>
+          <a href="mailto:bugsreport@lukecreated.com" target="_blank"
+            ><button class="btn btn-lg btn-danger">
+              Bugs report (via email)
+            </button></a
+          >
+          <a
+            href="https://github.com/ngzh-luke/self-christmas2022_remaster"
+            target="_blank"
+            ><button class="btn btn-sm btn-primary">
+              Application source code
+            </button></a
+          >
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div
-  class="text-center my-4 py-3 px-5 mx-5 border border-3 border-info rounded-bottom"
-  align="center"
->
-  <div class="px-3 py-2" align="start">
-    <h3 style="font-weight: bold">About the Developer</h3>
-    <div class="hstack gap-2">
-      <button class="btn btn btn-success col-4" onclick="contactMe()">
-        Contact Me
-      </button>
-      <div class="vstack gap-2" align="center">
-        I am just an ordinary guy from Bangkok, Thailand, who want to keep
-        himself busy with something benificial to either others or himself.
-        <br />
-        <button class="btn btn-outline-info">
-          <a class="dropdown-item" href="https://lukecreated.com/"
-            >{% if session['LANG'] == "TH" %}ไปที่หน้าเริ่มต้น{% else %}Root
-            Home{% endif %}</a
-          >
+  <div
+    class="text-center my-4 py-3 px-5 mx-5 border border-3 border-info rounded-bottom"
+    align="center"
+  >
+    <div class="px-3 py-2" align="start">
+      <h3 style="font-weight: bold">About the Developer</h3>
+      <div class="hstack gap-2">
+        <button class="btn btn btn-success col-4" onclick="contactMe()">
+          Contact Me
         </button>
+        <div class="vstack gap-2" align="center">
+          I am just an ordinary guy from Bangkok, Thailand, who want to keep
+          himself busy with something benificial to either others or himself.
+          <br />
+          <button class="btn btn-outline-info">
+            <a class="dropdown-item" href="https://lukecreated.com/"
+              >{% if session['LANG'] == "TH" %}ไปที่หน้าเริ่มต้น{% else %}Root
+              Home{% endif %}</a
+            >
+          </button>
+        </div>
       </div>
     </div>
   </div>
