@@ -58,12 +58,12 @@ def create_app():
     # with app.app_context(): # Drop all of the tables
     #     db.drop_all()
 
-    try:
-        with app.app_context():
-            db.create_all()
-    except Exception as e:
-        db.session.rollback()
-        flash(f'{e}', category='error')
+    # try:
+    #     with app.app_context():
+    #         db.create_all()
+    # except Exception as e:
+    #     db.session.rollback()
+    #     flash(f'{e}', category='error')
 
     from .models import User
 
@@ -133,8 +133,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=2.239, status='Public Release',
-                         build=20231120, version_note='specify runDev file and about page imp')
+systemInfoObject = About(version=2.24, status='Public Release',
+                         build=20240311, version_note='crash fixed and minor improvements')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
